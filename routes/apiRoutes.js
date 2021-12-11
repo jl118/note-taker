@@ -1,5 +1,5 @@
 const path = require("path");
-const { readFromFile, readAndAppend, readAndDelete } = require("");
+const { readFromFile, readAndAppend, readAndDelete } = require("../db/noteStore.js");
 const router = require("express").Router();
 const { v4: uuidv4 } = require('uuid');
 
