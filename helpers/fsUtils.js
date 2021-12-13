@@ -10,8 +10,11 @@ const readAndAppend = (content, file) => {
       } else {
         const parsedData = JSON.parse(data);
         parsedData.push(content);
-        fs.writeFile(file, JSON.stringify(parsedData, null, 4), (err)=>
-        err ? console.log(err) : console.log("New note added!"));
+        fs.writeFile(file, JSON.stringify(parsedData, null, 4), (err) =>
+          err 
+          ? console.log(err) 
+          : console.log("New note added!")
+        );
       }
     });
   };
@@ -22,12 +25,15 @@ const readAndDelete = (id, file) => {
           console.error(err);
         } else {
             const parsedData = JSON.parse(data);
-            for (i=0; i<parsedData.length; i++){
-                if(parsedData[i].id ===id){
-                    parsedData.splice(i,1);
+            for (i=0; i < parsedData.length; i++) {
+                if(parsedData[i].id === id) {
+                    parsedData.splice(i, 1);
 
-                    fs.writeFile(file, JSON.stringify(parsedData, null, 4), (err)=>
-                    err ? console.log(err) : console.log("Note deleted!"));
+                    fs.writeFile(file, JSON.stringify(parsedData, null, 4), (err) =>
+                      err 
+                      ? console.log(err) 
+                      : console.log("Note deleted!")
+                    );
                 }
             }
         };
