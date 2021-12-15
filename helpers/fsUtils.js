@@ -1,8 +1,10 @@
 const fs = require("fs");
 const util = require("util");
 
+// promise version of fs.readFile
 const readFromFile = util.promisify(fs.readFile);
 
+// add new note
 const readAndAppend = (content, file) => {
     fs.readFile(file, 'utf8', (err, data) => {
       if (err) {
@@ -17,8 +19,9 @@ const readAndAppend = (content, file) => {
         );
       }
     });
-  };
+};
 
+// delete saved note
 const readAndDelete = (id, file) => {
     fs.readFile(file, 'utf8', (err, data) => {
         if (err) {

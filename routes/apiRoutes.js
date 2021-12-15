@@ -8,6 +8,7 @@ const {
 const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
 
+// GET route
 router.get("/notes", (req, res) => {
     console.log("get notes");
   readFromFile("./db/db.json").then((data) => {
@@ -16,6 +17,7 @@ router.get("/notes", (req, res) => {
   });
 });
 
+// POST route
 router.post("/notes", (req, res) => {
   const { title, text } = req.body;
   if (req.body) {
@@ -30,6 +32,7 @@ router.post("/notes", (req, res) => {
   }
 });
 
+// DELETE route
 router.delete("/notes/:id", (req, res) => {
   const { id } = req.params;
   readAndDelete(id, "./db/db.json");
